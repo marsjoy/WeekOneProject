@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
         swipeContainer.setOnRefreshListener(() -> presenter.fetchMovies());
 
         // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(R.color.primary_tint_90,
-                R.color.primary_tint_80,
-                R.color.primary_tint_70,
-                R.color.primary_tint_60);
+        swipeContainer.setColorSchemeResources(R.color.primary_tint_80,
+                R.color.primary_tint_60,
+                R.color.primary_tint_40,
+                R.color.primary_tint_20);
     }
 
     public void showMovies(List<Movie> movieList) {

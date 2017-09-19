@@ -49,14 +49,6 @@ public class Movie  {
         this.video = video;
     }
 
-    public String getPosterPath() {
-        return posterPath;
-    }
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -71,14 +63,6 @@ public class Movie  {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getBackdropPath() {
-        return backdropPath;
-    }
-
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
     }
 
     public String getReleaseDate() {
@@ -97,24 +81,12 @@ public class Movie  {
         return rating;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public boolean isVideo() {
-        return video;
-    }
-
-    public void setVideo(boolean video) {
-        this.video = video;
     }
 
     public String getFullBackgropImageURL() {

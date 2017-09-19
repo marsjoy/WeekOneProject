@@ -12,7 +12,7 @@ import io.reactivex.Observable;
  */
 
 public interface MovieDatabaseApiClient {
-    String MOVIE_API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    String MOVIE_API_KEY = "1c6ec152b86e33aa678e1943459b758d";
 
     @GET("movie/now_playing")
     Call<MoviesResponse> getMovies(@Query("api_key") String key, @Query("page") int page);

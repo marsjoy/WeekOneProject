@@ -23,7 +23,7 @@ public class CommonModule {
     @Singleton
     Retrofit getMovieRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl("https://api.themoviedb.org/3")
+                .baseUrl("https://api.themoviedb.org/3/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
