@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TwentyFourTimesASecond</string>
+    <string name="sample_description_budapest_hotel">The Grand Budapest Hotel tells of a legendary concierge at a famous European hotel between the wars and his friendship with a young employee who becomes his trusted protégé. The story involves the theft and recovery of a priceless Renaissance painting, the battle for an enormous family fortune and the slow and then sudden upheavals that transformed Europe during the first half of the 20th century.</string>
+    <string name="sample_rating_budapest_hotel">9.5</string>
+    <string name="sample_title_budapest_hotel">The Grand Budapest Hotel</string>
+    <string name="sample_release_date_budapest_hotel">2014-03-07</string>
+</resources>

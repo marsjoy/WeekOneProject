@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingStart="5dp"
+        android:paddingTop="15dp">
+
+        <RelativeLayout
+            android:id="@+id/imageViewContainer"
+            android:layout_width="350dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/budapest_backdrop" />
+
+            <ImageView
+                android:id="@+id/playIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:alpha="0.5"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_play_circle"
+                android:tint="@color/play" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:layout_toEndOf="@+id/imageViewContainer"
+            android:layout_toRightOf="@+id/imageViewContainer"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="12dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="50"
+                android:text="@string/app_name"
+                android:textColor="@color/primary_text"
+                android:textSize="20sp"
+                tools:text="@string/sample_title_budapest_hotel" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxEms="80"
+                android:maxLines="5"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/material_typography_body1"
+                tools:text="@string/sample_description_budapest_hotel" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/material_layout_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/imageViewContainer"
+            android:padding="@dimen/material_component_lists_icon_left_padding">
+
+            <TextView
+                android:id="@+id/releaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_description_budapest_hotel"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/material_typography_body1" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/material_component_lists_two_line_height"
+                android:layout_below="@id/releaseDate"
+                android:layout_marginTop="@dimen/material_component_lists_padding_above_list"
+                android:rating="@string/sample_rating_budapest_hotel" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

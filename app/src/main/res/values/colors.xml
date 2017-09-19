@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="play">#ff40ef</color>
+    <color name="primary">#9C27B0</color>
+    <color name="primary_dark">#7B1FA2</color>
+    <color name="primary_light">#E1BEE7</color>
+    <color name="primary_tint_90">#a53cb7</color>
+    <color name="primary_tint_80">#af52bf</color>
+    <color name="primary_tint_70">#b967c7</color>
+    <color name="primary_tint_60">#c37dcf</color>
+    <color name="accent">#FFEB3B</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="white_70">#70FFFFFF</color>
+    <attr name="primary">#9C27B0</attr>
+    <attr name="primaryDark">#7B1FA2</attr>
+    <attr name="primaryLight">#E1BEE7</attr>
+</resources>
