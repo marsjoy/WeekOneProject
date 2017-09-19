@@ -39,7 +39,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://thumbs.gfycat.com/IdealisticFixedHousefly-size_restricted.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://thumbs.gfycat.com/JointRewardingAstarte-size_restricted.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
