@@ -3,16 +3,12 @@
     <color name="play">#ff40ef</color>
     <color name="primary">#6200ea</color>
     <color name="primary_dark">#0a00b6</color>
-    <color name="primary_light">#9d46ff</color>
     <color name="primary_tint_80">#809d46ff</color>
     <color name="primary_tint_60">#609d46ff</color>
     <color name="primary_tint_40">#409d46ff</color>
     <color name="primary_tint_20">#209d46ff</color>
     <color name="accent">#FFEB3B</color>
     <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
-    <color name="icons">#FFFFFF</color>
-    <color name="divider">#BDBDBD</color>
     <color name="white_70">#70ffffff</color>
     <attr name="primary">#9C27B0</attr>
     <attr name="primaryDark">#7B1FA2</attr>

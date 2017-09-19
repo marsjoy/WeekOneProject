@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="270dp"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:background="@color/primary_dark">
 
     <RelativeLayout
         android:id="@+id/rootView"
@@ -22,11 +23,9 @@
             android:src="@drawable/budapest_backdrop" />
 
         <ImageView
-            android:id="@+id/playIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="70dp"
             android:layout_marginStart="70dp"
             android:alpha="0.5"
             android:contentDescription="@string/app_name"
