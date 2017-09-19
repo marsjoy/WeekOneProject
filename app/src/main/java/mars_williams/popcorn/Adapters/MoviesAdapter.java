@@ -56,10 +56,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, int pos) {
         Context context = viewHolder.rootView.getContext();
         Movie movie = movies.get(pos);
-
-        if (getItemViewType(pos) == VIEW_TYPE_MOVIE) {
+        movie.setIsPopular(getItemViewType(pos) != VIEW_TYPE_MOVIE);
+        if (!movie.getIsPopular()) {
             MovieViewHolder vh = (MovieViewHolder) viewHolder;
-
             vh.title.setText(movie.getTitle());
             vh.desc.setText(movie.getDescription());
             vh.releaseDate.setText(movie.getFormattedReleaseDate());

@@ -31,6 +31,9 @@ public class Movie  {
     @SerializedName("video")
     boolean video;
 
+    @SerializedName("is_popular")
+    boolean isPopular;
+
     public Movie() {
     }
 
@@ -81,9 +84,11 @@ public class Movie  {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) { this.id = id; }
+
+    public void setIsPopular(boolean isPopular) { this.isPopular = isPopular; }
+
+    public boolean getIsPopular() { return isPopular; }
 
     public String getFullBackgropImageURL() {
         return "https://image.tmdb.org/t/p/w300/" + backdropPath;

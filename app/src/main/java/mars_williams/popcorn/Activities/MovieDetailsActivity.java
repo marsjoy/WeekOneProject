@@ -2,8 +2,11 @@ package mars_williams.popcorn.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -45,6 +48,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView description;
     @BindView(R.id.imageView)
     ImageView imageView;
+    @BindView(R.id.imageViewContainer)
+    LinearLayout imageViewContainer;
 
     @Inject
     MovieDatabaseApiClient movieApiClient;
@@ -65,7 +70,17 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movie = Parcels.unwrap(getIntent().getExtras().getParcelable(EXTRA_MOVIE));
         videoFr = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtubeFragment);
 
+        if (movie.getIsPopular()) { setLayout(); }
+        
         initGui();
+    }
+
+    private void setLayout() {
+        RelativeLayout.LayoutParams playerParams =
+                (RelativeLayout.LayoutParams) videoFr.getView().getLayoutParams();
+        playerParams.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        playerParams.height = LinearLayout.LayoutParams.MATCH_PARENT;
+        imageViewContainer.setVisibility(View.GONE);
     }
 
     private void initGui() {
@@ -79,7 +94,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean b) {
                 youTubePlayer = player;
-
+                if (movie.getIsPopular()) {
+                    player.setFullscreen(true);
+                }
                 fetchTrailer();
             }
 
@@ -88,6 +105,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
             }
         };
+
 
         videoFr.initialize(YOUTUBE_KEY, videoHandler);
     }
