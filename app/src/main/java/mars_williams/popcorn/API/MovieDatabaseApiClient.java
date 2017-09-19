@@ -1,11 +1,11 @@
 package mars_williams.popcorn.API;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import io.reactivex.Observable;
 
 public interface MovieDatabaseApiClient {
     String MOVIE_API_KEY = "1c6ec152b86e33aa678e1943459b758d";

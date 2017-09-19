@@ -71,7 +71,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         videoFr = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtubeFragment);
 
         if (movie.getIsPopular()) { setLayout(); }
-        
+
         initGui();
     }
 
@@ -105,7 +105,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
             }
         };
-
 
         videoFr.initialize(YOUTUBE_KEY, videoHandler);
     }

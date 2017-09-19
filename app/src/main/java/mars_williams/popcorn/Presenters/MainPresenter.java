@@ -11,13 +11,13 @@ import javax.inject.Inject;
 
 import icepick.Icepick;
 import icepick.State;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import mars_williams.popcorn.API.MovieDatabaseApiClient;
 import mars_williams.popcorn.Activities.MainActivity;
 import mars_williams.popcorn.Bundlers.MovieBundler;
-import mars_williams.popcorn.PopcornApplication;
 import mars_williams.popcorn.Models.Movie;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.android.schedulers.AndroidSchedulers;
+import mars_williams.popcorn.PopcornApplication;
 
 public class MainPresenter {
 
