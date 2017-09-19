@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import mars_williams.popcorn.Activities.MainActivity;
 import mars_williams.popcorn.Activities.MovieDetailsActivity;
+import mars_williams.popcorn.Activities.MovieTrailerActivity;
 import mars_williams.popcorn.Modules.CommonModule;
 import mars_williams.popcorn.Presenters.MainPresenter;
 
@@ -15,6 +16,8 @@ public interface AppComponent {
     void inject(MainActivity activity);
 
     void inject(MovieDetailsActivity activity);
+
+    void inject(MovieTrailerActivity activity);
 
     void inject(MainPresenter target);
 }

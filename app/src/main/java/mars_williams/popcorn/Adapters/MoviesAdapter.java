@@ -18,6 +18,7 @@ import java.util.List;
 
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import mars_williams.popcorn.Activities.MovieDetailsActivity;
+import mars_williams.popcorn.Activities.MovieTrailerActivity;
 import mars_williams.popcorn.Models.Movie;
 import mars_williams.popcorn.R;
 import mars_williams.popcorn.ViewHolders.MovieViewHolder;
@@ -92,9 +93,15 @@ public class MoviesAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     private void openMovieDetails(Context context, Movie movie) {
-        Intent intent = new Intent(context, MovieDetailsActivity.class);
-        intent.putExtra(MovieDetailsActivity.EXTRA_MOVIE, Parcels.wrap(movie));
-        context.startActivity(intent);
+        if (!movie.getIsPopular()) {
+            Intent intent = new Intent(context, MovieDetailsActivity.class);
+            intent.putExtra(MovieDetailsActivity.EXTRA_MOVIE, Parcels.wrap(movie));
+            context.startActivity(intent);
+        } else {
+            Intent intent = new Intent(context, MovieTrailerActivity.class);
+            intent.putExtra(MovieTrailerActivity.EXTRA_MOVIE, Parcels.wrap(movie));
+            context.startActivity(intent);
+        }
     }
 }
 

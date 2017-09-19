@@ -1,16 +1,11 @@
 package mars_williams.popcorn.Activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerFragment;
-import com.squareup.picasso.Picasso;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import org.parceler.Parcels;
 
@@ -18,9 +13,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import mars_williams.popcorn.API.MovieDatabaseApiClient;
 import mars_williams.popcorn.API.Trailer;
 import mars_williams.popcorn.API.TrailerResponse;
@@ -31,58 +24,43 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MovieDetailsActivity extends AppCompatActivity {
+public class MovieTrailerActivity extends YouTubeBaseActivity {
 
     public static final String EXTRA_MOVIE = "MOVIE";
     private static final String YOUTUBE_KEY = "AIzaSyDKNbjeQHUgdqOcekntKtrYZw6q7Ek4ZOg";
 
-    @BindView(R.id.title)
-    TextView title;
-    @BindView(R.id.ratingBar)
-    RatingBar ratingBar;
-    @BindView(R.id.releaseDate)
-    TextView releaseDate;
-    @BindView(R.id.description)
-    TextView description;
-    @BindView(R.id.imageView)
-    ImageView imageView;
-    @BindView(R.id.imageViewContainer)
-    LinearLayout imageViewContainer;
+    private YouTubePlayer youTubePlayer;
+    private Movie movie;
+
+    YouTubePlayerView youTubePlayerView;
 
     @Inject
     MovieDatabaseApiClient movieApiClient;
 
-    YouTubePlayerFragment videoFr;
-
-    private YouTubePlayer youTubePlayer;
-    private Movie movie;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_detail);
+        setContentView(R.layout.activity_movie_trailer);
 
         ButterKnife.bind(this);
         ((PopcornApplication) getApplication()).getAppComponent().inject(this);
 
         movie = Parcels.unwrap(getIntent().getExtras().getParcelable(EXTRA_MOVIE));
-        videoFr = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtubeFragment);
+        System.out.print(movie);
+        youTubePlayerView = findViewById(R.id.player);
 
         initGui();
     }
 
     private void initGui() {
 
-        title.setText(movie.getTitle());
-        ratingBar.setRating(movie.getRating());
-        releaseDate.setText(movie.getFormattedReleaseDate());
-        description.setText(movie.getDescription());
-
         YouTubePlayer.OnInitializedListener videoHandler = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean b) {
                 youTubePlayer = player;
+                player.setFullscreen(true);
                 fetchTrailer();
+                player.play();
             }
 
             @Override
@@ -91,36 +69,27 @@ public class MovieDetailsActivity extends AppCompatActivity {
             }
         };
 
-        videoFr.initialize(YOUTUBE_KEY, videoHandler);
-    }
-
-    private void showImage() {
-        Picasso.with(this)
-                .load(movie.getFullBackgropImageURL())
-                .transform(new RoundedCornersTransformation(5, 0))
-                .into(imageView);
+        youTubePlayerView.initialize(YOUTUBE_KEY, videoHandler);
     }
 
     private void fetchTrailer() {
+        System.out.print(movie.getId());
         movieApiClient.getTrailer(movie.getId(), MovieDatabaseApiClient.MOVIE_API_KEY, 1).enqueue(new Callback<TrailerResponse>() {
             @Override
             public void onResponse(Call<TrailerResponse> call, Response<TrailerResponse> response) {
                 if (response.isSuccessful()) {
                     List<Trailer> trailers = response.body().getTrailers();
-                    if (!trailers.isEmpty() && null != videoFr.getView()) {
-                        youTubePlayer.cueVideo(trailers.get(0).getSource());
+                    if (!trailers.isEmpty() && null != youTubePlayerView) {
+                        youTubePlayer.loadVideo(trailers.get(0).getSource());
                         return;
                     }
                 }
-
-                showImage();
             }
 
             @Override
             public void onFailure(Call<TrailerResponse> call, Throwable t) {
-                showImage();
+
             }
         });
     }
 }
-
