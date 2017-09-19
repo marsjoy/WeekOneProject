@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
                 android:scaleType="fitXY"
-                android:src="@drawable/budapest_backdrop" />
+                android:src="@drawable/budapest_poster" />
 
             <ImageView
                 android:layout_width="40dp"
