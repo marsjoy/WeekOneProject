@@ -10,7 +10,6 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 
 import org.parceler.Parcels;
 
@@ -96,7 +95,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private void showImage() {
         Picasso.with(this)
                 .load(movie.getFullBackgropImageURL())
-                .transform((Transformation) new RoundedCornersTransformation(5, 0))
+                .transform(new RoundedCornersTransformation(5, 0))
                 .into(imageView);
     }
 

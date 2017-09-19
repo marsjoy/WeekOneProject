@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 import com.squareup.picasso.RequestCreator;
 
 import org.parceler.Parcels;
@@ -89,7 +88,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<ViewHolder> {
         RequestCreator requestCreator = Picasso.with(context)
                 .load(imageURL)
                 .placeholder(R.drawable.ic_movies)
-                .error(R.drawable.ic_movies).transform((Transformation) new RoundedCornersTransformation(10, 10));
+                .error(R.drawable.ic_movies).transform(new RoundedCornersTransformation(10, 10));
         requestCreator.into(imageView);
     }
 
