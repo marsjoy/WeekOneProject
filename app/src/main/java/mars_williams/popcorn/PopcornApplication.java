@@ -6,10 +6,6 @@ import mars_williams.popcorn.Components.AppComponent;
 import mars_williams.popcorn.Components.DaggerAppComponent;
 import mars_williams.popcorn.Modules.CommonModule;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 public class PopcornApplication extends Application {
 
     private AppComponent appComponent;

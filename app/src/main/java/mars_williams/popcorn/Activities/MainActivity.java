@@ -19,11 +19,6 @@ import mars_williams.popcorn.Models.Movie;
 import mars_williams.popcorn.Presenters.MainPresenter;
 import mars_williams.popcorn.R;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
-
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.filmListView)
@@ -68,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         swipeContainer.setOnRefreshListener(() -> presenter.fetchMovies());
 
-        // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(R.color.primary_tint_80,
                 R.color.primary_tint_60,
                 R.color.primary_tint_40,
@@ -83,6 +77,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showError() {
-        Toast.makeText(this, "Error!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Error processing your request", Toast.LENGTH_LONG).show();
     }
 }

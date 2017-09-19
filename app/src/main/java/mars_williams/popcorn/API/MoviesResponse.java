@@ -6,10 +6,6 @@ import java.util.List;
 
 import mars_williams.popcorn.Models.Movie;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 public class MoviesResponse {
 
     private int page;

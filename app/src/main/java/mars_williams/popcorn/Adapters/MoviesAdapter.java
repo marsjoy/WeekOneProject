@@ -1,9 +1,5 @@
 package mars_williams.popcorn.Adapters;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -13,14 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.DrawableRequestBuilder;
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+import com.squareup.picasso.RequestCreator;
 
 import org.parceler.Parcels;
 
 import java.util.List;
 
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import mars_williams.popcorn.Activities.MovieDetailsActivity;
 import mars_williams.popcorn.Models.Movie;
 import mars_williams.popcorn.R;
@@ -70,10 +67,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<ViewHolder> {
             vh.ratingBar.setRating(movie.getRating());
 
             String imageURL = isLandscape(context) ? movie.getFullBackgropImageURL() : movie.getFullPosterImageURL();
-            fetchRoundedImage(context, vh.imageView, imageURL, true);
+            fetchRoundedImage(context, vh.imageView, imageURL);
         } else {
             PopularMovieViewHolder vh = (PopularMovieViewHolder) viewHolder;
-            fetchRoundedImage(context, vh.imageView, movie.getFullBackgropImageURL(), false);
+            fetchRoundedImage(context, vh.imageView, movie.getFullBackgropImageURL());
         }
 
         viewHolder.rootView.setOnClickListener(view -> openMovieDetails(context, movie));
@@ -88,18 +85,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<ViewHolder> {
         return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
-    private void fetchRoundedImage(Context context, ImageView imageView, String imageURL, boolean round) {
-        DrawableRequestBuilder<String> requestCreator = Glide.with(context)
+    private void fetchRoundedImage(Context context, ImageView imageView, String imageURL) {
+        RequestCreator requestCreator = Picasso.with(context)
                 .load(imageURL)
-                .fitCenter()
                 .placeholder(R.drawable.ic_movies)
-                .fitCenter();
-
-        if (round) {
-            RoundedCornersTransformation cornersTransformation = new RoundedCornersTransformation(context, 5, 0);
-            requestCreator = requestCreator.bitmapTransform(cornersTransformation);
-        }
-
+                .error(R.drawable.ic_movies).transform((Transformation) new RoundedCornersTransformation(10, 10));
         requestCreator.into(imageView);
     }
 

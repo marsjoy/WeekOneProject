@@ -2,10 +2,6 @@ package mars_williams.popcorn.API;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 public class Trailer {
 
     @SerializedName("name")

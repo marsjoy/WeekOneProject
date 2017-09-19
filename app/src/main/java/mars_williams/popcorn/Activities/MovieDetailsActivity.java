@@ -6,10 +6,11 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import org.parceler.Parcels;
 
@@ -19,20 +20,16 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
-import mars_williams.popcorn.Models.Movie;
-import mars_williams.popcorn.PopcornApplication;
-import mars_williams.popcorn.R;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import mars_williams.popcorn.API.MovieDatabaseApiClient;
 import mars_williams.popcorn.API.Trailer;
 import mars_williams.popcorn.API.TrailerResponse;
+import mars_williams.popcorn.Models.Movie;
+import mars_williams.popcorn.PopcornApplication;
+import mars_williams.popcorn.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-/**
- * Created by mars_williams on 9/18/17.
- */
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
@@ -97,9 +94,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     }
 
     private void showImage() {
-        Glide.with(this)
+        Picasso.with(this)
                 .load(movie.getFullBackgropImageURL())
-                .bitmapTransform(new RoundedCornersTransformation(this, 5, 0))
+                .transform((Transformation) new RoundedCornersTransformation(5, 0))
                 .into(imageView);
     }
 

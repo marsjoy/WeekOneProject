@@ -4,10 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 @Parcel
 public class Movie  {
 

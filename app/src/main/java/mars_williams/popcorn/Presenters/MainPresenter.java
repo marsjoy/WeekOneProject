@@ -19,11 +19,6 @@ import mars_williams.popcorn.Models.Movie;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 public class MainPresenter {
 
     private static final String TAG = MainPresenter.class.getSimpleName();

@@ -7,10 +7,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 import io.reactivex.Observable;
 
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 public interface MovieDatabaseApiClient {
     String MOVIE_API_KEY = "1c6ec152b86e33aa678e1943459b758d";
 

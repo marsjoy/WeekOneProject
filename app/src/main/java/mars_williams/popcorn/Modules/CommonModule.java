@@ -10,12 +10,6 @@ import mars_williams.popcorn.API.MovieDatabaseApiClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
-
-/**
- * Created by mars_williams on 9/18/17.
- */
-
 @Module
 public class CommonModule {
 
